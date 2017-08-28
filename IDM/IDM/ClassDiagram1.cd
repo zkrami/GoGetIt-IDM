@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IDM.Classes.FileDownloader">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="IDM.Classes.FileDownloader.FileDownloadState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileDownloader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Delegate Name="IDM.Classes.FileDownloader.UpdateDownloadHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileDownloader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="IDM.Classes.FileDownloader.FinishDownloadHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileDownloader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="IDM.Classes.FileDownloader.OnFileReadHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileDownloader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="IDM.Classes.FileDownloader.OnPausedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileDownloader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="IDM.Classes.FileDownloader.FailedDownloadHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\FileDownloader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EgQxIAAQAGDIBARiIIAAGghG2E8QB1ysjExEBizQABA=</HashCode>
+      <FileName>Classes\FileDownloader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

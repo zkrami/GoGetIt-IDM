@@ -1,0 +1,94 @@
+﻿<Application x:Class="IDM.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:IDM"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="buttonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border Cursor="Hand" BorderThickness="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  >
+
+                            <Grid Height="24" VerticalAlignment="Top">
+                                <Label Content="{TemplateBinding Button.Content}" FontFamily="Calibri" FontSize="12" Foreground="#FFF" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+
+            <Style.Triggers>
+                <Trigger  Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF24A9CD" />
+                </Trigger>
+                <Trigger  Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="#FF2D97B4" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FF2F7F95" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#FF6A929C" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" x:Key="textBoxStyle">
+            <Setter Property="BorderBrush" Value="#FF2D97B4" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Padding" Value="2" />
+
+        </Style>
+        <Style TargetType="DataGridColumnHeader" x:Key="HeaderStyle">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="#FF2D97B4" />
+            <Setter Property="Foreground" Value="#FFF" />
+            <Setter Property="BorderBrush" Value="#fff" />
+            <Setter Property="Height" Value="21" />
+            <Setter Property="BorderThickness" Value="0,0,0.55,0"/>
+        </Style>
+        <Style TargetType="DataGridColumnHeader" x:Key="HeaderStyleLefter">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="#FF2D97B4" />
+            <Setter Property="Foreground" Value="#FFF" />
+            <Setter Property="BorderBrush" Value="#fff" />
+            <Setter Property="Height" Value="21" />
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="dataGridElementStyle">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            
+
+        </Style>
+         <Style TargetType="TextBlock" x:Key="dataGridElementStyleLeft">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Padding" Value="0" />
+
+        </Style>
+        <Style TargetType="DataGridRow" x:Key="DataGridRowStyle" >
+            <Setter Property="Foreground" Value="#FFF" />
+            <Setter Property="Height" Value="22" />
+            
+            <Style.Triggers>
+
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FF287A91" />
+
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FF3DB1D1" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+        <Style TargetType="DataGridCell" x:Key="NoBorderCell">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Red" />
+        </Style>
+        
+    </Application.Resources>
+</Application>

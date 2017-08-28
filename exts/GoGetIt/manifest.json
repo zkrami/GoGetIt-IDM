@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "GoGetIt",
+   "permissions": [
+          "downloads" , 
+		   "nativeMessaging"
+        ] , 
+  "version": "0.1" , 
+  "content_scripts": [
+  {
+    "matches": [
+      "*://*.youtube.com/*" , 
+	  "*://*.youtu.be/*"
+	  
+    ],
+    "js": [ "jquery-3.2.1.min.js" , "youtube.js"] 
+	
+  } , 
+  {
+    "matches": [
+      "<all_urls>" 	
+    ],"exclude_matches": [
+            "*://*.youtube.com/*" , 
+	  "*://*.youtu.be/*"
+        ] ,
+    "js": [ "jquery-3.2.1.min.js" , "video.js"] 
+	
+  }
+  
+  ]
+  , "browser_action": {
+    "default_icon": "icon.png",
+
+    "default_title": "GoGetIt"
+  } , 
+  "background": {
+    "scripts": ["jquery-3.2.1.min.js" , "background.js"],
+    "persistent": false
+  }
+}

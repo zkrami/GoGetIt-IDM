@@ -1,0 +1,92 @@
+﻿<Window x:Name="window" x:Class="IDM.FileDownloadingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IDM"
+        mc:Ignorable="d"
+        Background="White"
+         Icon="res/icon.png"
+        Title="{Binding Url}" Height="550" Width="700"  Closed="window_Closed">
+
+    <Grid Margin="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="#FFFFFF" Margin="0">
+            <Grid Margin="20"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="150" />
+                    <ColumnDefinition Width="*" />
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="27"></RowDefinition>
+                    <RowDefinition Height="27"></RowDefinition>
+                    <RowDefinition Height="27"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="27"></RowDefinition>
+                    <RowDefinition Height="27"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" x:Name="urlLabel" Content="{Binding Url}" Grid.ColumnSpan="2"  HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="15" Foreground="#FF007DB8" />
+
+                <Label  Grid.Column="0" Grid.Row="1"   x:Name="label" Content="status" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF007DB8" />
+                <Label Grid.Column="0" Grid.Row="2"  x:Name="label_Copy" Content="File Size" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" FontFamily="Calibri" FontSize="14" Foreground="#FF007DB8" />
+                <Label Grid.Column="0" Grid.Row="3" x:Name="label_Copy1" Content="Downloaded" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF007DB8" />
+                <Label Grid.Column="0" Grid.Row="4" x:Name="label_Copy2" Content="Transfer rate" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF007DB8" />
+                <Label  Grid.Column="0" Grid.Row="5" x:Name="label_Copy3" Content="Time left" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF007DB8" />
+                <!-- <Label Grid.Column="0" Grid.Row="6"   x:Name="label_Copy4" Content="Resume capability" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF007DB8" /> -->
+
+                <Label Grid.Column="1" Grid.Row="1"  x:Name="statusLabel" Content="{Binding Path=StateFormated}"  HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF3E3E3E"  />
+                <Label Grid.Column="1" Grid.Row="2"  x:Name="fileSizeLabel" Content="{Binding Path=FormatedFileSize}" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF3E3E3E" />
+                <Label Grid.Column="1" Grid.Row="3"  x:Name="downloadedLabel" Content="{Binding Path=DownloadedFormatted}" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF3E3E3E" />
+                <Label Grid.Column="1" Grid.Row="4"  x:Name="transferRateLabel" Content="{Binding Path=TransferRateFormated}" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF3E3E3E" />
+                <Label Grid.Column="1" Grid.Row="5"  x:Name="timeleftLabel" Content="{Binding Path=TimeLeftFormatted}" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF3E3E3E" />
+                <!-- <Label Grid.Column="1" Grid.Row="6"  x:Name="resumeCapabilityLabel" Content="{Binding Path=State}" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Calibri" FontSize="14" Foreground="#FF3E3E3E" /> -->
+
+
+                <Button  Style="{StaticResource buttonStyle}" x:Name="pauseResumeBtn" Grid.Column="0" Grid.Row="7" Content="Pauase" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="pauseBtn_Click" BorderBrush="{x:Null}" Margin="0,6,0,-5"/>
+            </Grid>
+
+        </Grid>
+
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.Row="1" >
+            <DataGrid  Background="#FFFDFDFD" AlternationCount="2"   RowHeaderWidth="0" ColumnHeaderStyle="{StaticResource HeaderStyle}"  IsReadOnly="True" x:Name="dataGrid" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" ItemsSource="{Binding Path=PartsFileDownloader}" AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="N" Width="12" Binding="{Binding Number}" />
+                    <DataGridTextColumn Header="State" Width="100" Binding="{Binding StateFormated}" />
+                    <DataGridTextColumn Header="Size" Width="100" Binding="{Binding AmountToReadFormatted}" />
+                    <DataGridTextColumn Header="Downloaded" Width="100" Binding="{Binding DownloadedFormated}" />
+
+
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow" >
+                        <Setter Property="Foreground" Value="#FFF" />
+                        <Setter Property="Height" Value="22" />
+                        <Style.Triggers>
+
+                            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                <Setter Property="Background" Value="#FF287A91" />
+
+                            </Trigger>
+                            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                <Setter Property="Background" Value="#FF3DB1D1" />
+                            </Trigger>
+                        </Style.Triggers>
+
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Window>
